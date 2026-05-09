@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    @apply text-gray-900 bg-[#fbfbfd];
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-sm hover:shadow-lg transition-all duration-300;
+  }
+
+  .glass-accent {
+    @apply bg-gradient-to-br from-white/90 to-white/50 backdrop-blur-xl border border-white/60;
+  }
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px) rotate(0deg); }
+  50%  { transform: translateY(-15px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
+
+.ambient-bg {
+  background-color: #FAFAFC;
+}
+
+.ambient-blob-1 {
+  position: fixed;
+  top: -10%; left: -10%;
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle, rgba(167,139,250,0.18) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  animation: float 14s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ambient-blob-2 {
+  position: fixed;
+  bottom: -20%; right: -10%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  animation: float 18s ease-in-out infinite reverse;
+  z-index: -1;
+  pointer-events: none;
+}
