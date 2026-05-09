@@ -40,7 +40,8 @@ export default function OverviewPage() {
   }, [])
 
   const copyLink = () => {
-    navigator.clipboard.writeText(`https://infilink.in/${user?.handle ?? ''}`)
+    const domain = typeof window !== 'undefined' ? window.location.host : 'infilink.in'
+    navigator.clipboard.writeText(`https://${domain}/${user?.handle ?? ''}`)
     showToast('Link copied!')
   }
 
